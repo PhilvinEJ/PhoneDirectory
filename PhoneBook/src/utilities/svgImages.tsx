@@ -1,10 +1,10 @@
 import React from "react";
 import { SvgXml } from "react-native-svg";
-import { back } from "../assets/svg/main";
+import { back, add, backIcon } from "../assets/svg/main";
 
-const IMAGES = { back };
+const IMAGES = { back, add, backIcon };
 
-export type IconsType = "" | "back";
+export type IconsType = "" | "back" | "add" | "backIcon";
 
 /**
  * @param {string} icon Icon name

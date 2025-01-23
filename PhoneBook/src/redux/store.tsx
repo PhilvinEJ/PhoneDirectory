@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import authenticationReducer from "./reducers/auth/authenticationReducer";
+import contactsReducer from "./reducers/contacts/contactsReducer";
 
 export const reduxStore = configureStore({
   reducer: {
     authentication: authenticationReducer,
+    contacts: contactsReducer,
   },
   // middleware: [thunkMiddleware],
 });

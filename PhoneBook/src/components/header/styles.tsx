@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 import { colors } from "../../themes/colors";
 import { font, fontSize } from "../../themes/fonts";
-import { widthRatio } from "../../utilities/dimensions";
+import { heightRatio, widthRatio } from "../../utilities/dimensions";
 
 const styles = StyleSheet.create({
   headerContainer: {
@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
+    paddingBottom: 12 * heightRatio,
   },
   backContainer: {
     height: 24 * widthRatio,
@@ -32,6 +33,22 @@ const styles = StyleSheet.create({
     width: "10%",
     alignItems: "flex-end",
     justifyContent: "flex-end",
+  },
+  inputText: {
+    minHeight: 50 * heightRatio,
+    borderRadius: 25,
+    borderWidth: 1,
+    paddingHorizontal: 12 * widthRatio,
+    paddingVertical: 8 * heightRatio,
+    gap: 10,
+    borderColor: colors.gray,
+    color: colors.black2A2A2A,
+    justifyContent: "center",
+    alignItems: "center",
+    fontSize: fontSize.average,
+    backgroundColor: "white",
+    fontFamily: font.regular,
+    fontWeight: "400",
   },
 });
 

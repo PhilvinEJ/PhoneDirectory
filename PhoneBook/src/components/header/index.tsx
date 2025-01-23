@@ -1,10 +1,20 @@
-import { View, TouchableOpacity, Text } from "react-native";
+import {
+  View,
+  TouchableOpacity,
+  Text,
+  KeyboardTypeOptions,
+  TextInput,
+  ViewStyle,
+  StyleProp,
+  TextStyle,
+} from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { heightRatio, widthRatio } from "../../utilities/dimensions";
 import styles from "./styles";
 import SvgImage from "../../utilities/svgImages";
+import { colors } from "../../themes/colors";
 
-interface Props {
+interface HeaderProps {
   isBackIconHidden?: boolean;
   onBackPress?: Function;
   headerText: string;
@@ -13,7 +23,7 @@ interface Props {
   isUnreadNotificationShown?: boolean;
 }
 
-const Header = (props: Props) => {
+export const Header = (props: HeaderProps) => {
   const insets = useSafeAreaInsets();
 
   return (
@@ -33,7 +43,7 @@ const Header = (props: Props) => {
           }}
         >
           <SvgImage
-            icon={'back'}
+            icon={"backIcon"}
             width={24 * widthRatio}
             height={24 * widthRatio}
           />
@@ -47,4 +57,42 @@ const Header = (props: Props) => {
   );
 };
 
-export default Header;
+interface SearchHeaderProps {
+  value?: any;
+  placeholder?: string;
+  onChangeText: (text: string) => void;
+  onSubmitEditing?: () => void;
+  error?: string;
+  keyboardType?: KeyboardTypeOptions;
+  containerStyle?: ViewStyle;
+  textStyle?: StyleProp<TextStyle>;
+}
+
+export const SearchHeader = (props: SearchHeaderProps) => {
+  const insets = useSafeAreaInsets();
+
+  return (
+    <View
+      style={[
+        styles.headerContainer,
+        props.containerStyle,
+        { marginTop: insets.top + 12 * heightRatio },
+      ]}
+    >
+      <TextInput
+        placeholder={props.placeholder}
+        placeholderTextColor={colors.placeholderColor}
+        keyboardType={props.keyboardType}
+        value={props.value}
+        onChangeText={(text) => {
+          props.onChangeText(text);
+        }}
+        style={[
+          styles.inputText,
+          props.textStyle,
+          props.error && { borderColor: colors.errorTxt },
+        ]}
+      />
+    </View>
+  );
+};

@@ -1,6 +1,7 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "../screens/home";
 import navigationConfig from "./config";
+import AddContact from "../screens/addContact";
 
 const Stack = createNativeStackNavigator();
 
@@ -8,8 +9,9 @@ const Stack = createNativeStackNavigator();
   Contains Apps main stack of screens for navigation
 */
 
-enum MainScreens {
+export enum MainScreens {
   Home = "Home",
+  AddContact = "AddContact",
 }
 
 const MainStack = () => {
@@ -21,6 +23,13 @@ const MainStack = () => {
       <Stack.Screen
         name={MainScreens.Home}
         component={Home}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name={MainScreens.AddContact}
+        component={AddContact}
         options={{
           headerShown: false,
         }}
