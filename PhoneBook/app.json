@@ -25,6 +25,12 @@
     },
     "web": {
       "favicon": "./src/assets/images/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "57672341-356b-4146-aef4-0f01c28843bc"
+      }
+    },
+    "owner": "philvin"
   }
 }
